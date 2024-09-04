@@ -1,0 +1,12 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql
+    ports:
+      - "1401:1443"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "admin@1234"
+    command: bash -c "
+        mkdir /var/opt/mssql/backup
+      "
